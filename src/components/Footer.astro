@@ -2,92 +2,57 @@
 ---
 
 <footer class="footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3>關於我們</h3>
-      <p>鵬程創意獎學金致力於發掘和支持創意人才。</p>
+  <div class="footer-container">
+    <div class="footer-content">
+      <p class="copyright">
+        © 2024 鵬程創意獎學金 | Bright Future Creativity Scholarship
+      </p>
+      <p class="credits">
+        由香港兆基創意書院支持
+      </p>
     </div>
-    <div class="footer-section">
-      <h3>快速鏈接</h3>
-      <ul>
-        <li><a href="/scholars/">獲獎者</a></li>
-        <li><a href="/about/">關於</a></li>
-        <li><a href="/team/">團隊</a></li>
-        <li><a href="/contact/">聯繫</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h3>聯繫方式</h3>
-      <p>Email: info@brightfuture.edu.hk</p>
-      <p>Tel: +852 1234 5678</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 鵬程創意獎學金。版權所有。</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
-    color: white;
-    padding: 2rem;
-    margin-top: 4rem;
+    background-color: var(--color-white);
+    padding: 24px 0;
+    border-top: none;
+  }
+
+  .footer-container {
+    max-width: var(--site-width);
+    margin: 0 auto;
+    padding: 0 20px;
   }
 
   .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    text-align: left;
   }
 
-  .footer-section h3 {
-    color: var(--secondary);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+  .copyright {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-light);
+    margin-bottom: 4px;
   }
 
-  .footer-section ul {
-    list-style: none;
-  }
-
-  .footer-section ul li {
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-section a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .footer-section a:hover {
-    color: var(--secondary);
-  }
-
-  .footer-section p {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
+  .credits {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--color-gray);
   }
 
   @media (max-width: 768px) {
     .footer {
-      padding: 1rem;
+      padding: 20px 0;
     }
 
     .footer-content {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      text-align: center;
     }
   }
 </style>

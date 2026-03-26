@@ -1,224 +1,319 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
 
 const scholars = [
-  {
-    id: 1,
-    name: '傑出設計師 - 2024',
-    description: '創意設計領域的優秀代表，以其創新的視覺設計獲得認可。',
-    year: '2024'
-  },
-  {
-    id: 2,
-    name: '創新創業者 - 2024',
-    description: '社會創業和創新的先鋒，通過創意解決社會問題。',
-    year: '2024'
-  },
-  {
-    id: 3,
-    name: '藝術創作者 - 2023',
-    description: '藝術創作和表演的傑出人才，展示創意的無限可能。',
-    year: '2023'
-  },
-  {
-    id: 4,
-    name: '科技創新者 - 2023',
-    description: '科技領域的創新先驅，推動行業發展。',
-    year: '2023'
-  },
-  {
-    id: 5,
-    name: '品牌設計師 - 2022',
-    description: '品牌視覺設計的專家，創作獨特的品牌形象。',
-    year: '2022'
-  },
-  {
-    id: 6,
-    name: '內容創作者 - 2022',
-    description: '數字內容創作的新星，展現創意的多樣性。',
-    year: '2022'
-  }
+  { id: 1, name: '李心悅', year: '2019', field: '創意設計' },
+  { id: 2, name: '李雅斯', year: '2019', field: '藝術創作' },
+  { id: 3, name: '鍾咏琛', year: '2020', field: '視覺藝術' },
+  { id: 4, name: '馬敏翹', year: '2020', field: '多媒體設計' },
+  { id: 5, name: '謝貝怡', year: '2020', field: '創意寫作' },
+  { id: 6, name: '梁柏麟', year: '2020', field: '音樂創作' },
+  { id: 7, name: '李浩勤', year: '2021', field: '數碼藝術' },
+  { id: 8, name: '張智健', year: '2021', field: '產品設計' },
+];
+
+const yearStats = [
+  { year: '2019', count: 2 },
+  { year: '2020', count: 7 },
+  { year: '2021', count: 11 },
+  { year: '2021-22', count: 5 },
+  { year: '2022-23', count: 2 },
+  { year: '2023-24', count: 8 },
+  { year: '2024-25', count: 5 },
 ];
 ---
 
-<Layout title="鵬程創意獎學金 - 首頁">
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>🌟 鵬程創意獎學金</h1>
-    <p class="subtitle">發掘和支持創意人才的平台</p>
-    <a href="#scholars" class="cta-button">瀏覽獲獎者</a>
-  </section>
+<Layout title="鵬程創意獎學金">
+  <Navbar />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">鵬程創意獎學金</h1>
+        <p class="hero-subtitle">BRIGHT FUTURE CREATIVITY SCHOLARSHIP</p>
+        <div class="hero-line"></div>
+        <p class="hero-description">
+          發掘、培養和支持具有創意潛力的優秀人才
+        </p>
+      </div>
+    </section>
 
-  <!-- Introduction Section -->
-  <section class="intro">
-    <h2>歡迎來到鵬程創意獎學金</h2>
-    <p>
-      鵬程創意獎學金致力於發掘、培養和支持具有創意潛力的優秀人才。
-      我們相信創意是推動社會進步的重要力量，通過提供獎學金和平台，
-      我們希望能幫助創意人才實現他們的夢想。
-    </p>
-  </section>
+    <!-- About Section -->
+    <section class="section about-section">
+      <div class="container">
+        <h2>關於獎學金</h2>
+        <div class="about-content">
+          <p>
+            鵬程創意獎學金由鍾志平教授於2018年創立，旨在發掘和支持香港兆基創意書院的優秀創意人才。
+            我們相信創意是推動社會進步的重要力量，通過提供獎學金和展示平台，幫助年輕創意人才實現夢想。
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <!-- Scholars Section -->
-  <section id="scholars" class="scholars-section">
-    <h2>獲獎者展示</h2>
-    <div class="scholars-grid">
-      {scholars.map(scholar => (
-        <Card
-          title={scholar.name}
-          description={scholar.description}
-          year={scholar.year}
-        />
-      ))}
-    </div>
-  </section>
+    <!-- Scholars Grid Section -->
+    <section class="section section-light scholars-section">
+      <div class="container">
+        <h2>獲獎者</h2>
+        <p class="section-subtitle">歷屆創意獎學金得主</p>
+        
+        <div class="scholars-grid">
+          {scholars.map(scholar => (
+            <Card
+              title={scholar.name}
+              year={scholar.year}
+              description={scholar.field}
+            />
+          ))}
+        </div>
+        
+        <div class="view-all">
+          <a href="/scholars" class="btn btn-secondary">查看全部獲獎者</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="stat-card">
-      <h3>40+</h3>
-      <p>獲獎者</p>
-    </div>
-    <div class="stat-card">
-      <h3>7</h3>
-      <p>年份</p>
-    </div>
-    <div class="stat-card">
-      <h3>10+</h3>
-      <p>領域</p>
-    </div>
-  </section>
+    <!-- Stats Section -->
+    <section class="section stats-section">
+      <div class="container">
+        <h2>獎學金統計</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span class="stat-number">40+</span>
+            <span class="stat-label">獲獎者</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">7</span>
+            <span class="stat-label">年份</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">創意領域</span>
+          </div>
+        </div>
+        
+        <div class="year-breakdown">
+          <h3>歷年獲獎人數</h3>
+          <div class="year-grid">
+            {yearStats.map(stat => (
+              <div class="year-item">
+                <span class="year-label">{stat.year}</span>
+                <span class="year-count">{stat.count} 位</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
 </Layout>
 
 <style>
+  /* Hero Section */
   .hero {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, rgba(43, 86, 114, 0.05) 0%, rgba(250, 189, 113, 0.05) 100%);
-    border-radius: 12px;
-    margin-bottom: 4rem;
-    animation: fadeInDown 0.8s ease;
+    padding: 100px 20px;
+    background-color: var(--color-white);
   }
 
-  @keyframes fadeInDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero-content {
+    max-width: 800px;
   }
 
-  .hero h1 {
-    font-size: 3rem;
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
     color: var(--primary);
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
   }
 
-  .subtitle {
-    font-size: 1.25rem;
-    color: #666;
+  .hero-subtitle {
+    font-family: var(--font-heading);
+    font-size: clamp(0.7rem, 2vw, 1rem);
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     margin-bottom: 2rem;
   }
 
-  .cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-coral);
+    margin: 0 auto 2rem;
   }
 
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(43, 86, 114, 0.3);
-  }
-
-  .intro {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 4rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .intro h2 {
-    margin-bottom: 1rem;
-  }
-
-  .intro p {
-    font-size: 1.05rem;
+  .hero-description {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-light);
     line-height: 1.8;
-    color: #555;
   }
 
+  /* About Section */
+  .about-section {
+    background-color: var(--color-white);
+  }
+
+  .about-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-content p {
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  /* Scholars Section */
   .scholars-section {
-    margin-bottom: 4rem;
+    background-color: var(--color-gray-light);
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-top: -1rem;
+    margin-bottom: 3rem;
   }
 
   .scholars-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 3rem;
   }
 
-  .stats-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
-    border-radius: 12px;
-  }
-
-  .stat-card {
+  .view-all {
     text-align: center;
-    color: white;
   }
 
-  .stat-card h3 {
-    font-size: 2.5rem;
-    color: var(--secondary);
+  /* Stats Section */
+  .stats-section {
+    background-color: var(--color-white);
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 4rem;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-coral);
+    line-height: 1;
     margin-bottom: 0.5rem;
   }
 
-  .stat-card p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+  .stat-label {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .year-breakdown {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .year-breakdown h3 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+
+  .year-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+
+  .year-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-gray-light);
+    border-radius: 4px;
+  }
+
+  .year-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .year-count {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-light);
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .scholars-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
   }
 
   @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-
-    .subtitle {
-      font-size: 1rem;
+    .hero {
+      min-height: 50vh;
+      padding: 80px 20px;
     }
 
     .scholars-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
     }
 
-    .stats-section {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      padding: 1.5rem;
+    .stats-grid {
+      gap: 40px;
     }
 
-    .stat-card h3 {
-      font-size: 1.8rem;
+    .stat-number {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .scholars-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .stats-grid {
+      flex-direction: column;
+      gap: 30px;
     }
   }
 </style>

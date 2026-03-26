@@ -1,59 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="頁面未找到 - 鵬程創意獎學金">
-  <section class="not-found">
-    <h1>404</h1>
-    <h2>頁面未找到</h2>
-    <p>抱歉，您訪問的頁面不存在或已被移除。</p>
-    <a href="/" class="back-button">返回首頁</a>
-  </section>
+  <Navbar />
+  
+  <main class="not-found">
+    <div class="not-found-content">
+      <h1>404</h1>
+      <div class="hero-line"></div>
+      <h2>頁面未找到</h2>
+      <p>抱歉，您訪問的頁面不存在或已被移除。</p>
+      <a href="/" class="btn btn-primary">返回首頁</a>
+    </div>
+  </main>
+
+  <Footer />
 </Layout>
 
 <style>
   .not-found {
-    text-align: center;
-    padding: 4rem 2rem;
     min-height: 60vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-  }
-
-  .not-found h1 {
-    font-size: 6rem;
-    color: var(--secondary);
-    margin-bottom: 1rem;
-  }
-
-  .not-found h2 {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 1rem;
+    justify-content: center;
     text-align: center;
+    padding: 80px 20px;
   }
 
-  .not-found p {
-    font-size: 1.1rem;
-    color: #666;
+  .not-found-content h1 {
+    font-size: 6rem;
+    color: var(--color-coral);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-coral);
+    margin: 0 auto 2rem;
+  }
+
+  .not-found-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .not-found-content p {
+    font-size: 1rem;
+    color: var(--text-light);
     margin-bottom: 2rem;
-  }
-
-  .back-button {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
-    color: white;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-  }
-
-  .back-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(43, 86, 114, 0.3);
   }
 </style>

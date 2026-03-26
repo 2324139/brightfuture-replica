@@ -1,96 +1,119 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="關於我們 - 鵬程創意獎學金">
-  <section class="about-section">
-    <h1>關於鵬程創意獎學金</h1>
-    
-    <div class="about-content">
-      <h2>我們的使命</h2>
-      <p>
-        鵬程創意獎學金致力於發掘、培養和支持具有創意潛力的優秀人才。
-        我們相信創意是推動社會進步的重要力量，通過提供獎學金和平台，
-        我們希望能幫助創意人才實現他們的夢想。
-      </p>
+  <Navbar />
+  
+  <main>
+    <section class="hero-small">
+      <h1>關於我們</h1>
+      <div class="hero-line"></div>
+    </section>
 
-      <h2>我們的願景</h2>
-      <p>
-        建立一個充滿創意、充滿活力的社會，其中創意人才能夠自由地發揮
-        他們的潛力，為社會帶來積極的改變。
-      </p>
+    <section class="section">
+      <div class="container">
+        <div class="content-block">
+          <h2>我們的使命</h2>
+          <p>
+            鵬程創意獎學金致力於發掘、培養和支持具有創意潛力的優秀人才。
+            我們相信創意是推動社會進步的重要力量，通過提供獎學金和平台，
+            幫助創意人才實現他們的夢想。
+          </p>
+        </div>
 
-      <h2>我們的價值觀</h2>
-      <ul class="values-list">
-        <li><strong>創新：</strong> 我們鼓勵創新思維和新穎的想法</li>
-        <li><strong>包容：</strong> 我們歡迎來自不同背景和領域的人才</li>
-        <li><strong>卓越：</strong> 我們追求卓越的質量和效果</li>
-        <li><strong>可持續：</strong> 我們致力於可持續的發展和影響</li>
-      </ul>
+        <div class="content-block">
+          <h2>創辦背景</h2>
+          <p>
+            獎學金由鍾志平教授於2018年創立，旨在支持香港兆基創意書院的優秀學生。
+            自成立以來，已經支持了超過40位創意人才，涵蓋設計、藝術、科技、創業等多個領域。
+          </p>
+        </div>
 
-      <h2>我們的成就</h2>
-      <p>
-        自成立以來，鵬程創意獎學金已經支持了 40 多位創意人才，
-        涵蓋設計、藝術、科技、創業等多個領域。我們的獲獎者已經
-        在各自的領域取得了顯著的成就和影響力。
-      </p>
-    </div>
-  </section>
+        <div class="content-block">
+          <h2>核心價值</h2>
+          <ul class="values-list">
+            <li><strong>創新</strong> — 鼓勵創新思維和新穎的想法</li>
+            <li><strong>包容</strong> — 歡迎來自不同背景和領域的人才</li>
+            <li><strong>卓越</strong> — 追求卓越的質量和效果</li>
+            <li><strong>可持續</strong> — 致力於可持續的發展和影響</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h2>合作機構</h2>
+          <p>
+            香港兆基創意書院（Creative Academy Hong Kong）<br>
+            地址：九龍聯合道 135 號
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
 </Layout>
 
 <style>
-  .about-section {
-    max-width: 800px;
+  .hero-small {
+    padding: 80px 20px 60px;
+    text-align: center;
+    background-color: var(--color-white);
+  }
+
+  .hero-small h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-coral);
     margin: 0 auto;
   }
 
-  .about-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  .content-block {
+    max-width: 700px;
+    margin: 0 auto 4rem;
   }
 
-  .about-content h2 {
-    color: var(--primary);
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+  .content-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .content-block h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
     text-align: left;
   }
 
-  .about-content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 1rem;
+  .content-block p {
+    font-size: 1rem;
+    line-height: 2;
   }
 
   .values-list {
     list-style: none;
     padding: 0;
-    margin: 1.5rem 0;
   }
 
   .values-list li {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, rgba(43, 86, 114, 0.05) 0%, rgba(250, 189, 113, 0.05) 100%);
-    border-left: 4px solid var(--primary);
-    border-radius: 4px;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-gray-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
   }
 
-  @media (max-width: 768px) {
-    .about-content {
-      padding: 1rem;
-    }
+  .values-list li:last-child {
+    border-bottom: none;
+  }
 
-    .about-content h2 {
-      font-size: 1.25rem;
-    }
-
-    .about-content p {
-      font-size: 1rem;
-    }
+  .values-list strong {
+    color: var(--primary);
+    font-weight: 500;
   }
 </style>
