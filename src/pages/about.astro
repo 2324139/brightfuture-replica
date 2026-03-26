@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="關於我們 - 鵬程創意獎學金">
+  <section class="about-section">
+    <h1>關於鵬程創意獎學金</h1>
+    
+    <div class="about-content">
+      <h2>我們的使命</h2>
+      <p>
+        鵬程創意獎學金致力於發掘、培養和支持具有創意潛力的優秀人才。
+        我們相信創意是推動社會進步的重要力量，通過提供獎學金和平台，
+        我們希望能幫助創意人才實現他們的夢想。
+      </p>
+
+      <h2>我們的願景</h2>
+      <p>
+        建立一個充滿創意、充滿活力的社會，其中創意人才能夠自由地發揮
+        他們的潛力，為社會帶來積極的改變。
+      </p>
+
+      <h2>我們的價值觀</h2>
+      <ul class="values-list">
+        <li><strong>創新：</strong> 我們鼓勵創新思維和新穎的想法</li>
+        <li><strong>包容：</strong> 我們歡迎來自不同背景和領域的人才</li>
+        <li><strong>卓越：</strong> 我們追求卓越的質量和效果</li>
+        <li><strong>可持續：</strong> 我們致力於可持續的發展和影響</li>
+      </ul>
+
+      <h2>我們的成就</h2>
+      <p>
+        自成立以來，鵬程創意獎學金已經支持了 40 多位創意人才，
+        涵蓋設計、藝術、科技、創業等多個領域。我們的獲獎者已經
+        在各自的領域取得了顯著的成就和影響力。
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-section {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .about-content h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .about-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+
+  .values-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .values-list li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(43, 86, 114, 0.05) 0%, rgba(250, 189, 113, 0.05) 100%);
+    border-left: 4px solid var(--primary);
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      padding: 1rem;
+    }
+
+    .about-content h2 {
+      font-size: 1.25rem;
+    }
+
+    .about-content p {
+      font-size: 1rem;
+    }
+  }
+</style>

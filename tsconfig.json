@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "jsxImportSource": "astro",
+    "allowJs": true,
+    "checkJs": false
+  }
+}

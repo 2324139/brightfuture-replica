@@ -1,0 +1,110 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+
+const scholars = [
+  { id: 1, name: '傑出設計師 - 2024', description: '創意設計領域的優秀代表', year: '2024' },
+  { id: 2, name: '創新創業者 - 2024', description: '社會創業和創新的先鋒', year: '2024' },
+  { id: 3, name: '藝術創作者 - 2023', description: '藝術創作和表演的傑出人才', year: '2023' },
+  { id: 4, name: '科技創新者 - 2023', description: '科技領域的創新先驅', year: '2023' },
+  { id: 5, name: '品牌設計師 - 2022', description: '品牌視覺設計的專家', year: '2022' },
+  { id: 6, name: '內容創作者 - 2022', description: '數字內容創作的新星', year: '2022' },
+  { id: 7, name: '企業創新者 - 2021', description: '推動企業創新的領導者', year: '2021' },
+  { id: 8, name: '社會設計師 - 2021', description: '社會創新和設計的推動者', year: '2021' },
+];
+---
+
+<Layout title="獲獎者 - 鵬程創意獎學金">
+  <section class="scholars-page">
+    <h1>鵬程創意獎學金獲獎者</h1>
+    <p class="intro-text">展示我們支持的優秀創意人才</p>
+    
+    <div class="filters">
+      <button class="filter-btn active" data-year="all">全部</button>
+      <button class="filter-btn" data-year="2024">2024</button>
+      <button class="filter-btn" data-year="2023">2023</button>
+      <button class="filter-btn" data-year="2022">2022</button>
+      <button class="filter-btn" data-year="2021">2021</button>
+    </div>
+
+    <div class="scholars-grid">
+      {scholars.map(scholar => (
+        <Card
+          title={scholar.name}
+          description={scholar.description}
+          year={scholar.year}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .scholars-page {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--primary);
+    background: white;
+    color: var(--primary);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--primary);
+    color: white;
+  }
+
+  .scholars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .filters {
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .scholars-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>

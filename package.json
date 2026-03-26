@@ -1,0 +1,15 @@
+{
+  "name": "brightfuture-replica",
+  "version": "1.0.0",
+  "description": "鵬程創意獎學金 - Astro 靜態網站",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.1.0"
+  }
+}

@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const scholars = [
+  {
+    id: 1,
+    name: '傑出設計師 - 2024',
+    description: '創意設計領域的優秀代表，以其創新的視覺設計獲得認可。',
+    year: '2024'
+  },
+  {
+    id: 2,
+    name: '創新創業者 - 2024',
+    description: '社會創業和創新的先鋒，通過創意解決社會問題。',
+    year: '2024'
+  },
+  {
+    id: 3,
+    name: '藝術創作者 - 2023',
+    description: '藝術創作和表演的傑出人才，展示創意的無限可能。',
+    year: '2023'
+  },
+  {
+    id: 4,
+    name: '科技創新者 - 2023',
+    description: '科技領域的創新先驅，推動行業發展。',
+    year: '2023'
+  },
+  {
+    id: 5,
+    name: '品牌設計師 - 2022',
+    description: '品牌視覺設計的專家，創作獨特的品牌形象。',
+    year: '2022'
+  },
+  {
+    id: 6,
+    name: '內容創作者 - 2022',
+    description: '數字內容創作的新星，展現創意的多樣性。',
+    year: '2022'
+  }
+];
+---
+
+<Layout title="鵬程創意獎學金 - 首頁">
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>🌟 鵬程創意獎學金</h1>
+    <p class="subtitle">發掘和支持創意人才的平台</p>
+    <a href="#scholars" class="cta-button">瀏覽獲獎者</a>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="intro">
+    <h2>歡迎來到鵬程創意獎學金</h2>
+    <p>
+      鵬程創意獎學金致力於發掘、培養和支持具有創意潛力的優秀人才。
+      我們相信創意是推動社會進步的重要力量，通過提供獎學金和平台，
+      我們希望能幫助創意人才實現他們的夢想。
+    </p>
+  </section>
+
+  <!-- Scholars Section -->
+  <section id="scholars" class="scholars-section">
+    <h2>獲獎者展示</h2>
+    <div class="scholars-grid">
+      {scholars.map(scholar => (
+        <Card
+          title={scholar.name}
+          description={scholar.description}
+          year={scholar.year}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="stat-card">
+      <h3>40+</h3>
+      <p>獲獎者</p>
+    </div>
+    <div class="stat-card">
+      <h3>7</h3>
+      <p>年份</p>
+    </div>
+    <div class="stat-card">
+      <h3>10+</h3>
+      <p>領域</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(43, 86, 114, 0.05) 0%, rgba(250, 189, 113, 0.05) 100%);
+    border-radius: 12px;
+    margin-bottom: 4rem;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 86, 114, 0.3);
+  }
+
+  .intro {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 4rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .intro h2 {
+    margin-bottom: 1rem;
+  }
+
+  .intro p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .scholars-section {
+    margin-bottom: 4rem;
+  }
+
+  .scholars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #1a3a52 100%);
+    border-radius: 12px;
+  }
+
+  .stat-card {
+    text-align: center;
+    color: white;
+  }
+
+  .stat-card h3 {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+    }
+
+    .scholars-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .stats-section {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding: 1.5rem;
+    }
+
+    .stat-card h3 {
+      font-size: 1.8rem;
+    }
+  }
+</style>
