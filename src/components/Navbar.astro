@@ -1,49 +1,49 @@
 ---
 const navLinks = [
   { href: '/', label: '首頁' },
-  { href: '/scholars', label: '獲獎者' },
-  { href: '/about', label: '關於我們' },
+  { href: '/about', label: '關於獎學金' },
+  { href: '/scholars', label: '歷屆得獎者' },
+  { href: '/apply', label: '申請資訊' },
 ];
 ---
 
 <header class="header">
-  <div class="header-container">
+  <div class="header-inner">
     <a href="/" class="logo">
-      <span class="logo-text">鵬程創意獎學金</span>
+      <span class="logo-cn">鵬程創意獎學金</span>
+      <span class="logo-en">BFCS</span>
     </a>
     
     <nav class="nav">
-      <ul class="nav-list">
-        {navLinks.map(link => (
-          <li class="nav-item">
-            <a href={link.href} class="nav-link">{link.label}</a>
-          </li>
-        ))}
-      </ul>
+      {navLinks.map(link => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
     </nav>
 
-    <button class="mobile-menu-btn" aria-label="選單">
-      <span class="hamburger"></span>
+    <button class="mobile-toggle" aria-label="選單">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </div>
 </header>
 
 <style>
   .header {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: var(--header-height, 101px);
-    background-color: var(--color-white);
+    right: 0;
+    height: var(--header-height);
+    background: var(--color-white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
     z-index: 1000;
-    box-shadow: none;
   }
 
-  .header-container {
-    max-width: var(--site-width);
+  .header-inner {
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -52,50 +52,37 @@ const navLinks = [
 
   .logo {
     display: flex;
-    align-items: center;
-    text-decoration: none;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .logo-text {
-    font-family: var(--font-heading);
+  .logo-cn {
+    font-family: var(--font-serif);
     font-size: 1.1rem;
     font-weight: 700;
-    color: var(--primary);
-    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    letter-spacing: 0.15em;
+  }
+
+  .logo-en {
+    font-size: 0.7rem;
+    color: var(--color-gray);
+    letter-spacing: 0.3em;
     text-transform: uppercase;
   }
 
   .nav {
     display: flex;
-    align-items: center;
-  }
-
-  .nav-list {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-item {
-    position: relative;
+    gap: 2.5rem;
   }
 
   .nav-link {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    letter-spacing: 0.05em;
     padding: 8px 0;
-    transition: color 0.4s ease;
-    text-decoration: none;
-  }
-
-  .nav-link:hover {
-    color: var(--color-gold-dark);
+    position: relative;
   }
 
   .nav-link::after {
@@ -105,7 +92,7 @@ const navLinks = [
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-gold);
+    background: var(--color-accent);
     transition: width 0.3s ease;
   }
 
@@ -113,83 +100,30 @@ const navLinks = [
     width: 100%;
   }
 
-  .mobile-menu-btn {
+  .mobile-toggle {
     display: none;
+    flex-direction: column;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: 8px;
   }
 
-  .hamburger {
-    display: block;
+  .mobile-toggle span {
     width: 24px;
     height: 2px;
-    background-color: var(--primary);
-    position: relative;
-    transition: background-color 0.3s ease;
-  }
-
-  .hamburger::before,
-  .hamburger::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background-color: var(--primary);
-    transition: transform 0.3s ease;
-  }
-
-  .hamburger::before {
-    top: -8px;
-  }
-
-  .hamburger::after {
-    top: 8px;
+    background: var(--color-primary);
+    transition: 0.3s;
   }
 
   @media (max-width: 768px) {
-    .header {
-      height: 70px;
-    }
-
     .nav {
       display: none;
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      background-color: var(--color-white);
-      padding: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .nav.active {
-      display: block;
-    }
-
-    .nav-list {
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .nav-link {
-      display: block;
-      padding: 15px 0;
-      border-bottom: 1px solid var(--color-gray-light);
-    }
-
-    .mobile-menu-btn {
-      display: block;
+    
+    .mobile-toggle {
+      display: flex;
     }
   }
 </style>
-
-<script>
-  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-  const nav = document.querySelector('.nav');
-
-  mobileMenuBtn?.addEventListener('click', () => {
-    nav?.classList.toggle('active');
-  });
-</script>

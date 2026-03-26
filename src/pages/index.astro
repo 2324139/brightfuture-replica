@@ -5,107 +5,74 @@ import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
 
 const scholars = [
-  { id: 1, name: '李心悅', year: '2019', field: '創意設計' },
-  { id: 2, name: '李雅斯', year: '2019', field: '藝術創作' },
-  { id: 3, name: '鍾咏琛', year: '2020', field: '視覺藝術' },
-  { id: 4, name: '馬敏翹', year: '2020', field: '多媒體設計' },
-  { id: 5, name: '謝貝怡', year: '2020', field: '創意寫作' },
-  { id: 6, name: '梁柏麟', year: '2020', field: '音樂創作' },
-  { id: 7, name: '李浩勤', year: '2021', field: '數碼藝術' },
-  { id: 8, name: '張智健', year: '2021', field: '產品設計' },
-];
-
-const yearStats = [
-  { year: '2019', count: 2 },
-  { year: '2020', count: 7 },
-  { year: '2021', count: 11 },
-  { year: '2021-22', count: 5 },
-  { year: '2022-23', count: 2 },
-  { year: '2023-24', count: 8 },
-  { year: '2024-25', count: 5 },
+  { name: '李心悅', year: '2019', field: '視覺藝術' },
+  { name: '李雅斯', year: '2019', field: '媒體藝術' },
+  { name: '鍾咏琛', year: '2020', field: '視覺藝術' },
+  { name: '馬敏翹', year: '2020', field: '表演藝術' },
+  { name: '謝貝怡', year: '2020', field: '媒體藝術' },
+  { name: '梁柏麟', year: '2020', field: '音樂' },
 ];
 ---
 
-<Layout title="鵬程創意獎學金">
+<Layout title="鵬程創意獎學金 | BFCS">
   <Navbar />
   
   <main>
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
+        <p class="hero-school">香港兆基創意書院</p>
         <h1 class="hero-title">鵬程創意獎學金</h1>
-        <p class="hero-subtitle">BRIGHT FUTURE CREATIVITY SCHOLARSHIP</p>
+        <p class="hero-en">Bright Future Creativity Scholarship</p>
         <div class="hero-line"></div>
-        <p class="hero-description">
-          發掘、培養和支持具有創意潛力的優秀人才
+        <p class="hero-desc">
+          嘉許在藝術創作方面有傑出表現的同學
         </p>
       </div>
     </section>
 
     <!-- About Section -->
-    <section class="section about-section">
+    <section class="section about">
       <div class="container">
-        <h2>關於獎學金</h2>
+        <h2 class="section-title">關於獎學金</h2>
+        <p class="section-subtitle">About the Scholarship</p>
         <div class="about-content">
           <p>
-            鵬程創意獎學金由鍾志平教授於2018年創立，旨在發掘和支持香港兆基創意書院的優秀創意人才。
-            我們相信創意是推動社會進步的重要力量，通過提供獎學金和展示平台，幫助年輕創意人才實現夢想。
+            鵬程創意獎學金由鍾志平教授於2018年成立，旨在嘉許在藝術創作方面有傑出表現的香港兆基創意書院同學，鼓勵學生發揮創意潛能，追求藝術卓越。
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Scholars Grid Section -->
-    <section class="section section-light scholars-section">
+    <!-- Scholars Section -->
+    <section class="section scholars-section">
       <div class="container">
-        <h2>獲獎者</h2>
-        <p class="section-subtitle">歷屆創意獎學金得主</p>
+        <h2 class="section-title">歷屆得獎者</h2>
+        <p class="section-subtitle">Awardees</p>
         
         <div class="scholars-grid">
           {scholars.map(scholar => (
-            <Card
-              title={scholar.name}
-              year={scholar.year}
-              description={scholar.field}
+            <Card 
+              name={scholar.name} 
+              year={scholar.year} 
+              field={scholar.field}
             />
           ))}
         </div>
         
-        <div class="view-all">
-          <a href="/scholars" class="btn btn-secondary">查看全部獲獎者</a>
+        <div class="view-more">
+          <a href="/scholars" class="btn">查看更多得獎者</a>
         </div>
       </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section stats-section">
+    <!-- Apply Section -->
+    <section class="section apply-section">
       <div class="container">
-        <h2>獎學金統計</h2>
-        <div class="stats-grid">
-          <div class="stat-item">
-            <span class="stat-number">40+</span>
-            <span class="stat-label">獲獎者</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">7</span>
-            <span class="stat-label">年份</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">10+</span>
-            <span class="stat-label">創意領域</span>
-          </div>
-        </div>
-        
-        <div class="year-breakdown">
-          <h3>歷年獲獎人數</h3>
-          <div class="year-grid">
-            {yearStats.map(stat => (
-              <div class="year-item">
-                <span class="year-label">{stat.year}</span>
-                <span class="year-count">{stat.count} 位</span>
-              </div>
-            ))}
-          </div>
+        <div class="apply-box">
+          <h2>成為獎學金得主</h2>
+          <p>現正就讀香港兆基創意書院的中四至中六學生均可申請</p>
+          <a href="/apply" class="btn btn-light">了解申請詳情</a>
         </div>
       </div>
     </section>
@@ -115,56 +82,64 @@ const yearStats = [
 </Layout>
 
 <style>
-  /* Hero Section */
+  main {
+    padding-top: var(--header-height);
+  }
+
+  /* Hero */
   .hero {
-    min-height: 60vh;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 100px 20px;
-    background-color: var(--color-white);
+    padding: 60px 24px;
+    background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
   }
 
   .hero-content {
-    max-width: 800px;
+    max-width: 600px;
+  }
+
+  .hero-school {
+    font-size: 0.9rem;
+    color: var(--color-gray);
+    letter-spacing: 0.2em;
+    margin-bottom: 16px;
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
   }
 
-  .hero-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(0.7rem, 2vw, 1rem);
-    font-weight: 700;
-    color: var(--text-light);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
+  .hero-en {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
   }
 
   .hero-line {
-    width: 60px;
-    height: 3px;
-    background-color: var(--color-coral);
-    margin: 0 auto 2rem;
+    width: 40px;
+    height: 2px;
+    background: var(--color-accent);
+    margin: 0 auto 32px;
   }
 
-  .hero-description {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--text-light);
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--color-text);
     line-height: 1.8;
   }
 
-  /* About Section */
-  .about-section {
-    background-color: var(--color-white);
+  /* About */
+  .about {
+    background: var(--color-white);
   }
 
   .about-content {
@@ -176,144 +151,92 @@ const yearStats = [
   .about-content p {
     font-size: 1.05rem;
     line-height: 2;
+    color: var(--color-text);
   }
 
-  /* Scholars Section */
+  /* Scholars */
   .scholars-section {
-    background-color: var(--color-gray-light);
-  }
-
-  .section-subtitle {
-    text-align: center;
-    font-size: 1rem;
-    color: var(--text-light);
-    margin-top: -1rem;
-    margin-bottom: 3rem;
+    background: var(--color-gray-light);
   }
 
   .scholars-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
   }
 
-  .view-all {
+  .view-more {
     text-align: center;
   }
 
-  /* Stats Section */
-  .stats-section {
-    background-color: var(--color-white);
-  }
-
-  .stats-grid {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    margin-bottom: 4rem;
-  }
-
-  .stat-item {
-    text-align: center;
-  }
-
-  .stat-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-coral);
-    line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-
-  .stat-label {
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
     font-size: 0.9rem;
-    font-weight: 300;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+    transition: all 0.3s ease;
   }
 
-  .year-breakdown {
-    max-width: 600px;
+  .btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  /* Apply */
+  .apply-section {
+    background: var(--color-white);
+  }
+
+  .apply-box {
+    background: var(--color-secondary);
+    color: var(--color-white);
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 800px;
     margin: 0 auto;
   }
 
-  .year-breakdown h3 {
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-    color: var(--primary);
+  .apply-box h2 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    letter-spacing: 0.1em;
   }
 
-  .year-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1rem;
+  .apply-box p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin-bottom: 32px;
   }
 
-  .year-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--color-gray-light);
-    border-radius: 4px;
+  .btn-light {
+    border-color: var(--color-white);
+    color: var(--color-white);
   }
 
-  .year-label {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--primary);
-    margin-bottom: 0.25rem;
-  }
-
-  .year-count {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: var(--text-light);
-  }
-
-  /* Responsive */
-  @media (max-width: 968px) {
-    .scholars-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+  .btn-light:hover {
+    background: var(--color-white);
+    color: var(--color-secondary);
   }
 
   @media (max-width: 768px) {
     .hero {
-      min-height: 50vh;
-      padding: 80px 20px;
+      min-height: 60vh;
     }
 
     .scholars-grid {
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 16px;
     }
 
-    .stats-grid {
-      gap: 40px;
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .scholars-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .stats-grid {
-      flex-direction: column;
-      gap: 30px;
+    .apply-box {
+      padding: 40px 24px;
     }
   }
 </style>

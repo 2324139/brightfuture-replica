@@ -2,57 +2,97 @@
 ---
 
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-content">
-      <p class="copyright">
-        © 2024 鵬程創意獎學金 | Bright Future Creativity Scholarship
-      </p>
-      <p class="credits">
-        由香港兆基創意書院支持
-      </p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <h3>鵬程創意獎學金</h3>
+      <p class="footer-en">Bright Future Creativity Scholarship</p>
     </div>
+    
+    <div class="footer-links">
+      <a href="/about">關於獎學金</a>
+      <a href="/scholars">歷屆得獎者</a>
+      <a href="/apply">申請資訊</a>
+    </div>
+    
+    <div class="footer-info">
+      <p>香港兆基創意書院</p>
+      <p>HKICC Lee Shau Kee School of Creativity</p>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>© 2024 鵬程創意獎學金 BFCS. All rights reserved.</p>
   </div>
 </footer>
 
 <style>
   .footer {
-    background-color: var(--color-white);
-    padding: 24px 0;
-    border-top: none;
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 60px 0 0;
   }
 
-  .footer-container {
-    max-width: var(--site-width);
+  .footer-inner {
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
   }
 
-  .footer-content {
-    text-align: left;
+  .footer-brand h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-white);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
   }
 
-  .copyright {
-    font-family: var(--font-body);
+  .footer-en {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+  }
+
+  .footer-info p {
     font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--text-light);
-    margin-bottom: 4px;
+    opacity: 0.7;
+    line-height: 1.6;
   }
 
-  .credits {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: var(--color-gray);
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 24px;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+    opacity: 0.5;
   }
 
   @media (max-width: 768px) {
-    .footer {
-      padding: 20px 0;
-    }
-
-    .footer-content {
+    .footer-inner {
+      grid-template-columns: 1fr;
       text-align: center;
+      gap: 30px;
     }
   }
 </style>

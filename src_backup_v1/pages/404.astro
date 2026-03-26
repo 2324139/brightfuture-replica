@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="頁面未找到 - 鵬程創意獎學金">
+  <Navbar />
+  
+  <main class="not-found">
+    <div class="not-found-content">
+      <h1>404</h1>
+      <div class="hero-line"></div>
+      <h2>頁面未找到</h2>
+      <p>抱歉，您訪問的頁面不存在或已被移除。</p>
+      <a href="/" class="btn btn-primary">返回首頁</a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .not-found {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+  }
+
+  .not-found-content h1 {
+    font-size: 6rem;
+    color: var(--color-coral);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-coral);
+    margin: 0 auto 2rem;
+  }
+
+  .not-found-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .not-found-content p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+  }
+</style>

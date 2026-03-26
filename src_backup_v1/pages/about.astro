@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="關於我們 - 鵬程創意獎學金">
+  <Navbar />
+  
+  <main>
+    <section class="hero-small">
+      <h1>關於我們</h1>
+      <div class="hero-line"></div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="content-block">
+          <h2>我們的使命</h2>
+          <p>
+            鵬程創意獎學金致力於發掘、培養和支持具有創意潛力的優秀人才。
+            我們相信創意是推動社會進步的重要力量，通過提供獎學金和平台，
+            幫助創意人才實現他們的夢想。
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h2>創辦背景</h2>
+          <p>
+            獎學金由鍾志平教授於2018年創立，旨在支持香港兆基創意書院的優秀學生。
+            自成立以來，已經支持了超過40位創意人才，涵蓋設計、藝術、科技、創業等多個領域。
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h2>核心價值</h2>
+          <ul class="values-list">
+            <li><strong>創新</strong> — 鼓勵創新思維和新穎的想法</li>
+            <li><strong>包容</strong> — 歡迎來自不同背景和領域的人才</li>
+            <li><strong>卓越</strong> — 追求卓越的質量和效果</li>
+            <li><strong>可持續</strong> — 致力於可持續的發展和影響</li>
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h2>合作機構</h2>
+          <p>
+            香港兆基創意書院（Creative Academy Hong Kong）<br>
+            地址：九龍聯合道 135 號
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero-small {
+    padding: 80px 20px 60px;
+    text-align: center;
+    background-color: var(--color-white);
+  }
+
+  .hero-small h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-coral);
+    margin: 0 auto;
+  }
+
+  .content-block {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+  }
+
+  .content-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .content-block h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .content-block p {
+    font-size: 1rem;
+    line-height: 2;
+  }
+
+  .values-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .values-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-gray-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  .values-list li:last-child {
+    border-bottom: none;
+  }
+
+  .values-list strong {
+    color: var(--primary);
+    font-weight: 500;
+  }
+</style>

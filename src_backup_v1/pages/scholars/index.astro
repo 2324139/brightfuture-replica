@@ -1,0 +1,182 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import Card from '../../components/Card.astro';
+
+const scholarsByYear = [
+  {
+    year: '2024-25',
+    scholars: [
+      { name: '穆偉俊', field: '創意設計' },
+      { name: '萬泓夆', field: '視覺藝術' },
+      { name: '陳湘蕎', field: '多媒體' },
+      { name: '麥鈞宇', field: '產品設計' },
+      { name: '戴志康', field: '數碼藝術' },
+    ]
+  },
+  {
+    year: '2023-24',
+    scholars: [
+      { name: '王熙婷', field: '創意寫作' },
+      { name: '林泳希', field: '視覺藝術' },
+      { name: '張芷琳', field: '設計' },
+      { name: '關梓晴', field: '藝術創作' },
+      { name: '白月彤', field: '多媒體' },
+      { name: '吳凱琦', field: '音樂創作' },
+      { name: '陳浩天', field: '數碼設計' },
+    ]
+  },
+  {
+    year: '2022-23',
+    scholars: [
+      { name: '葉曉澄', field: '視覺藝術' },
+      { name: '鄭蔚兒', field: '創意設計' },
+    ]
+  },
+  {
+    year: '2021-22',
+    scholars: [
+      { name: '俞嘉欣', field: '藝術創作' },
+      { name: '吳沅樺', field: '設計' },
+      { name: '劉麗晴', field: '多媒體' },
+      { name: '馮靖川', field: '視覺藝術' },
+      { name: '吳心喬', field: '創意寫作' },
+    ]
+  },
+  {
+    year: '2021',
+    scholars: [
+      { name: '李浩勤', field: '數碼藝術' },
+      { name: '張智健', field: '產品設計' },
+      { name: '黃日禧', field: '視覺藝術' },
+    ]
+  },
+  {
+    year: '2020',
+    scholars: [
+      { name: '鍾咏琛', field: '視覺藝術' },
+      { name: '馬敏翹', field: '多媒體設計' },
+      { name: '謝貝怡', field: '創意寫作' },
+      { name: '梁柏麟', field: '音樂創作' },
+      { name: '陳瑋龍', field: '數碼藝術' },
+      { name: '孟君儀', field: '設計' },
+      { name: '麥詩琦', field: '視覺藝術' },
+    ]
+  },
+  {
+    year: '2019',
+    scholars: [
+      { name: '李心悅', field: '創意設計' },
+      { name: '李雅斯', field: '藝術創作' },
+    ]
+  },
+];
+---
+
+<Layout title="獲獎者 - 鵬程創意獎學金">
+  <Navbar />
+  
+  <main>
+    <section class="hero-small">
+      <h1>獲獎者</h1>
+      <div class="hero-line"></div>
+      <p class="hero-description">歷屆鵬程創意獎學金得主</p>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        {scholarsByYear.map(yearGroup => (
+          <div class="year-section">
+            <h2 class="year-title">{yearGroup.year}</h2>
+            <div class="scholars-grid">
+              {yearGroup.scholars.map(scholar => (
+                <Card
+                  title={scholar.name}
+                  year={yearGroup.year}
+                  description={scholar.field}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero-small {
+    padding: 80px 20px 60px;
+    text-align: center;
+    background-color: var(--color-white);
+  }
+
+  .hero-small h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-coral);
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    color: var(--text-light);
+  }
+
+  .year-section {
+    margin-bottom: 4rem;
+  }
+
+  .year-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .year-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-coral);
+    display: inline-block;
+  }
+
+  .scholars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  @media (max-width: 968px) {
+    .scholars-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .scholars-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .year-title {
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .scholars-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+  }
+</style>
